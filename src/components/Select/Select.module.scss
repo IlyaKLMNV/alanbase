@@ -1,0 +1,77 @@
+.select {
+  position: relative;
+  width: 300px;
+
+  &Button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    background: #fff;
+  }
+
+  &Button:hover {
+    border-color: #007bff;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #007bff;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        font-weight: bold;
+        margin-bottom: 2px;
+      }
+
+      .job {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  }
+
+  .spinner {
+    padding: 10px;
+    text-align: center;
+    color: #666;
+  }
+}
