@@ -19,7 +19,7 @@ const Select: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await fetchUsers(page, 50);
+      const response = await fetchUsers(page, 5000);
       setUsers((prev) => [...prev, ...response.data]);
       setMeta({ total: response.meta.total });
       setPage((prev) => prev + 1);
