@@ -12,10 +12,9 @@ const UserOption: React.FC<UserOptionProps> = ({ user, onSelect }) => {
     <div className={styles.option} onClick={() => onSelect(user)}>
       <div className={styles.icon}>{user.last_name[0]}</div>
       <div className={styles.details}>
-        <span className={styles.name}>
-          {user.last_name} {user.first_name}
+        <span>
+          {user.last_name} {user.first_name}, {user.job || 'No job title'}
         </span>
-        <span className={styles.job}>{user.job || 'No job title'}</span>
       </div>
     </div>
   );

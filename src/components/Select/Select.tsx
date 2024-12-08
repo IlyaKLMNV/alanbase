@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { User } from '../../types/api';
 import { fetchUsers } from '../../api/fetchUsers';
 import UserOption from './UserOption';
@@ -19,7 +19,7 @@ const Select: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await fetchUsers(page, 5000);
+      const response = await fetchUsers(page, 50);
       setUsers((prev) => [...prev, ...response.data]);
       setMeta({ total: response.meta.total });
       setPage((prev) => prev + 1);
@@ -29,12 +29,6 @@ const Select: React.FC = () => {
       setLoading(false);
     }
   };
-
-  const renderCount = useRef(0); // Счетчик рендеров
-
-  useEffect(() => {
-    renderCount.current += 1;
-  });
 
 
   useEffect(() => {
@@ -62,7 +56,7 @@ const Select: React.FC = () => {
   }, [users, selectUser]);
 
   return (
-    <div className={styles.select}>
+    <div className={`${styles.select} ${isOpen ? styles.open : ''}`}>
       <button className={styles.selectButton} onClick={toggleDropdown}>
         {selectedUser
           ? `${selectedUser.last_name} ${selectedUser.first_name}, ${selectedUser.job || 'No job title'}`
@@ -77,8 +71,6 @@ const Select: React.FC = () => {
           )}
         </div>
       )}
-      <p>{users.length}</p>
-      <p>Select renders: {renderCount.current}</p>
     </div>
   );
 };

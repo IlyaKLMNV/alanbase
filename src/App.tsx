@@ -4,8 +4,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <p>Users</p>
-        <Select />
+      <p style={{ margin: '0px' }}>Users</p>
+      <Select />
     </>
   )
 }
